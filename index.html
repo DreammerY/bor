@@ -2,10 +2,16 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>LovePhoto</title>
     <script src="js/jquery.min.js"></script>
     <link type="text/css" href="./css/style.css" rel="stylesheet" />
     <style>
+        /* #music{
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+        } */
       html,
       body {
         width: 100%;
@@ -21,11 +27,31 @@
         padding: 0;
         background-color: #000000;
       }
+      /* text */
+
+        #text{
+            text-decoration: none;
+            display: inline-block;
+            color: black;
+            font-size: 20px;
+            padding: 10px;
+
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: deeppink;
+            text-indent: 2em;
+        }
+
+        #title{
+            display: none;
+        }
     </style>
   </head>
   <body>
-    <audio autoplay="autopaly">
-      <source src="renxi.mp3" type="audio/mp3" />
+    <audio  autoplay="autoplay">
+      <source src="./music.mp3" type="audio/mp3"   />
     </audio>
     <div id="jsi-cherry-container" class="container">
       <div class="box">
@@ -47,7 +73,10 @@
         </ol>
       </div>
     </div>
-
+    <!-- text -->
+    <!-- <span id="title">我如果爱你—— 绝不像攀援的凌霄花， 借你的高枝炫耀自己； 我如果爱你——绝不学痴情的鸟儿，为绿荫重复单调的歌曲；也不止像泉源， 常年送来清凉的慰藉；也不止像险峰，增加你的高度，衬托你的威仪。甚至日光，甚至春雨。</span>
+    <a id="text"></a> -->
+    
     <script>
       var RENDERER = {
         INIT_CHERRY_BLOSSOM_COUNT: 30,
@@ -361,6 +390,32 @@
       $(function() {
         RENDERER.init();
       });
+    // html文字类似于打字特效
+    function typewriting(){
+        // 定义数字长度为零
+        var index=0;
+        // 获取文字内容，我这里直接在页面上写出来然后隐藏的，也可以动态加载哦
+        var word=document.getElementById("title").innerHTML;
+        // 封装任务
+        function type(){
+            // 获取打字在哪个位置，substring()方法提取字符串（获取到的word里）中介于两个指定下标之间的字符（起始为0，运行一次自增一次）。
+            if(index<word.length){
+                document.getElementById("text").innerText = word.substring(0,index++)+'_';
+            }else{
+                document.getElementById("text").innerText = word.substring(0,index++);
+                clearInterval(timer)
+            }
+        }
+        var t = 1
+        var timer = setInterval(type, 200);
+        // 100毫秒调用一次type任务
+    }
+    typewriting();
+
+    // let mp3 = new Audio('./music.mp3') // 创建音频对象
+    // mp3.loop = true
+    // mp3.play() // 播放
+
     </script>
   </body>
 </html>
