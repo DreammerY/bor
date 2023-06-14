@@ -51,6 +51,7 @@ li {
   background: url(../img/01.png) no-repeat 0 0;
   -webkit-transform: translateZ(50px);
 }
+/* 旋转位置 */
 .minbox li:nth-child(2) {
   background: url(../img/02.png) no-repeat 0 0;
   -webkit-transform: rotateX(180deg) translateZ(50px);
@@ -71,12 +72,15 @@ li {
   background: url(../img/01.png) no-repeat 0 0;
   -webkit-transform: rotateY(90deg) translateZ(50px);
 }
+
+/* 大图 */
 .maxbox li:nth-child(1) {
-  background: url(../img/3.png) no-repeat 0 0;
+  background: url(../img/1.png) no-repeat 0 0;
   -webkit-transform: translateZ(50px);
 }
+/* 旋转位置 1和2位间隔*/
 .maxbox li:nth-child(2) {
-  background: url(../img/4.png) no-repeat 0 0;
+  background: url(../img/2.png) no-repeat 0 0;
   -webkit-transform: translateZ(50px);
 }
 .maxbox li:nth-child(3) {
